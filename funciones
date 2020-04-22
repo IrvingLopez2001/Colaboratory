@@ -1,0 +1,941 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.8.2"
+    },
+    "colab": {
+      "name": "funciones_01.ipynb",
+      "provenance": [],
+      "collapsed_sections": []
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "RBH2aiq6CZdX",
+        "colab_type": "text"
+      },
+      "source": [
+        "# 1. Funciones\n",
+        "\n",
+        "\n",
+        "En esta sección se retoma la el concepto de funciones que son bloques de códigos que están desieñados para hacer un trabajo específico. Una vez que se desea reaizar una tarea que ya ha sido desarrollada dentro de función, simplemente se tiene que mandar a llamar o invocar a la función.\n",
+        "\n",
+        "En esta sección también se muestra cómo mandar información a una funcion diseñanada para procesar datos y  regresar algún valor o ejecutar algún comando. \n",
+        "\n",
+        "Finalmente se muestra como almacenar funciones en archivos separados llamandos *módulos* que ayudan a organizar mejor el programa principal."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "_x6LXFRLCZdf",
+        "colab_type": "text"
+      },
+      "source": [
+        "## 1.1. Definiendo una función ##\n",
+        "\n",
+        "Aquí se muestra un ejemplo de una función llamada $\\verb|greet_user|$ que simplemente imprime en la terminal una saludo"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "x3I4sqOHCZdl",
+        "colab_type": "code",
+        "outputId": "d7fa4efe-da71-4180-9100-4d40c84d38e6",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        }
+      },
+      "source": [
+        "########################################\n",
+        "# CELDA 1 : Definición de una función  #\n",
+        "########################################\n",
+        "\n",
+        "\n",
+        "# Esta es la definición de una función\n",
+        "def greet_user():\n",
+        "    \"\"\"Mostrar un simple saludo.\"\"\"\n",
+        "    print(\"Hola!\")\n",
+        "\n",
+        "\n",
+        "# Ya estamos fuera de la función y se mandará a llamar\n",
+        "greet_user()"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Hola!\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ArZRpB7_CZeJ",
+        "colab_type": "text"
+      },
+      "source": [
+        "En este ejemplo se muestra la estructura más simple de una fucnión . En la línea $\\verb|1|$ se utiliza la palabra reservada $\\verb|def|$ para notificar al intérprete de Python que comienza una función, seguido de $\\verb|def|$ sigue el nombre de la función y después unos parétesis vacíos, estos paréntesis vacíos implican que la fución no recibe ninguna información par poder trabajar, después de los paréntesis van dos puntos, estos indican que el código que sigue a continuación es el cuerpo de la función. Observe que todas las líneas de código pertenecientes a la fución deben de guardar la misma sangría. \n",
+        "\n",
+        "\n",
+        "### 1.1.1 Pasando información a la función\n",
+        "\n",
+        "La función anterior sólo puede decir Hola, a continuación se muestra una modificación a la función para que ésta pueda mostrar un saludo personalizado."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "ECDr0xhoCZeP",
+        "colab_type": "code",
+        "outputId": "750b2960-e1e1-4ef8-aa0a-7e5ed80fb319",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        }
+      },
+      "source": [
+        "#########################################\n",
+        "# CELDA 2 : Paso de info a la función   #\n",
+        "#########################################\n",
+        "\n",
+        "\n",
+        "# Esta es la definición de una función \n",
+        "def greet_user(username):\n",
+        "    \"\"\" Mostrar un saludo personalizado\"\"\"\n",
+        "    print(\"Hola \"+username.title()+\"!\")\n",
+        "    \n",
+        "#Ya estamos fuera de la función y se mandará a llamar\n",
+        "greet_user(\"Juan Pérez\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Hola Juan Pérez!\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ONWBGMXVCZez",
+        "colab_type": "text"
+      },
+      "source": [
+        "### 1.1.2 Ejercicios\n",
+        "\n",
+        "#### 1.1.2.1.Mensaje.\n",
+        "Escriba una función llamanda $\\verb|display_message()|$ que imprima en la pantalla un mensaje que indique los temas que se han visto hasta el momento.\n",
+        "\n",
+        "\n",
+        "#### 1.1.2.2 Libro favorito.\n",
+        "Escriba una función que se llame $\\verb|libro_favorito()|$ que acepte un parámetro llamado $\\verb|titulo|$ y que despligue en la terminal *Tu libro favorito es (nombre del libro)*"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "wGsArMAsDAAO",
+        "colab_type": "code",
+        "outputId": "f4d3a51f-f69d-4caa-f238-9efe295ce4b2",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        }
+      },
+      "source": [
+        "##############################\n",
+        "# Ejercicio 1.1.2.1. Mensaje #\n",
+        "##############################\n",
+        "def display_massage(temas):\n",
+        "  print(\"Los temas vistos son: \"+temas.title())\n",
+        "\n",
+        "print(\"Inserte los temas que se han visto hasta el momento\")\n",
+        "temas = input()\n",
+        "display_massage(temas)\n"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Inserte los temas que se han visto hasta el momento\n",
+            "asjjahdjgashf, gkjasdfg  y iusdgskjsddf jashafd\n",
+            "Los temas vistos son: Asjjahdjgashf, Gkjasdfg  Y Iusdgskjsddf Jashafd\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "TKPlUBioDBBM",
+        "colab_type": "code",
+        "outputId": "d37e4610-e1a6-4739-9e2d-6267d9f13fda",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        }
+      },
+      "source": [
+        "#####################################\n",
+        "# Ejercicio 1.1.2.2. Libro Favorito #\n",
+        "#####################################\n",
+        "def libro_favorito(titulo):\n",
+        "  print(\"Tu libro favorito es: \"+titulo.title())\n",
+        "\n",
+        "print(\"Inserte el nombre de su libro favorito\")\n",
+        "titulo=input()\n",
+        "libro_favorito(titulo)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Inserte el nombre de su libro favorito\n",
+            "sajkdgasj\n",
+            "Tu libro favorito es: Sajkdgasj\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "6lvSiheqCZe4",
+        "colab_type": "text"
+      },
+      "source": [
+        "## 1.2. Paso de argumentos\n",
+        "\n",
+        "En ocasiones una fución necesita múltiples parámetros, dentro de Python existen diferentes maneras de pasar los argumentos a una función, el uso y la implementación dependerá de la necesidad del usuario y programador.\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "sMsiGvtKCZe_",
+        "colab_type": "text"
+      },
+      "source": [
+        "### 1.2.1 Argumentos Posicionales\n",
+        "\n",
+        "Ejecute las siguientes celdas y observe los resultados"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "1ikBVH5yCZfD",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "#########################################\n",
+        "# CELDA 3 : Descripción de mascota      #\n",
+        "#########################################\n",
+        "\n",
+        "\n",
+        "def descripcion_mascota(tipo_animal, nombre):\n",
+        "    \"\"\"Muestra la información de una mascota.\"\"\"\n",
+        "    print(\"\\nTengo un(a) \" + tipo_animal + \" como mascota.\")\n",
+        "    print(\"Mi \" + tipo_animal +  \" se llama \" + nombre)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "uUJZKfy0CZff",
+        "colab_type": "code",
+        "outputId": "e3373210-da52-4a3f-f9e4-f241d4304865",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        }
+      },
+      "source": [
+        "#########################################\n",
+        "# CELDA 4 :                             #\n",
+        "#########################################\n",
+        "\n",
+        "\n",
+        "descripcion_mascota(\"perro\",\"Filemon\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "\n",
+            "Tengo un(a) perro como mascota.\n",
+            "Mi perro se llama Filemon\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "69jJKbyoCZfy",
+        "colab_type": "code",
+        "outputId": "a53b8fec-e9ac-4813-833d-e8a2bfc1f58f",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        }
+      },
+      "source": [
+        "#########################################\n",
+        "# CELDA 5 :                             #\n",
+        "#########################################\n",
+        "\n",
+        "\n",
+        "descripcion_mascota(\"Michi\",\"gato\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "\n",
+            "Tengo un(a) Michi como mascota.\n",
+            "Mi Michi se llama gato\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "f21qCrl9CZgG",
+        "colab_type": "text"
+      },
+      "source": [
+        "La función se llama $\\verb|descripcion_mascota|$ y se puede observar en su implementación en la *celda 3* observe que recibe dos parámetros que deben de ser de tipo *string*, e imprime la información referente a mascota, en la *celda 4 y 5* se manda a llamar la función y si se observa el resultado de la celda 4 los enunciados muestran coherencia, mientras que en la celda 5 son incoherentes. \n",
+        "\n",
+        "La diferncia entre las celdas fue el orden de los argumentos, en la celda 4 \"perro\" lo asinga a \"tipo de animal\" y \"Filemon\" lo asigna a nombre, mientras que en la celda 5 \"Michi\" lo asigna \"tipo de animal\", mientras que \"gato\" lo asinga a \"nombre\".\n",
+        "\n",
+        "A esta forma de mandar los parámetros en los que es de gran importancia el orden en que se mandan los mismos, se le conoce como **Argumentos posicionales**"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "N37eorKTCZgJ",
+        "colab_type": "text"
+      },
+      "source": [
+        "### 1.2.2 Argumentos \"Keyword\"\n",
+        "\n",
+        "Ejecute la *celda 3* y depués las *celda 6 y 7*"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "BQA6mhZZCZgR",
+        "colab_type": "code",
+        "outputId": "0c9956fe-2883-49e0-e449-72c29eef1df1",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        }
+      },
+      "source": [
+        "#########################################\n",
+        "# CELDA 6 :                             #\n",
+        "#########################################\n",
+        "\n",
+        "\n",
+        "descripcion_mascota(tipo_animal = \"hamster\",nombre = \"Harry\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "\n",
+            "Tengo un(a) hamster como mascota.\n",
+            "Mi hamster se llama Harry\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "scrolled": true,
+        "id": "K45kjJANCZgp",
+        "colab_type": "code",
+        "outputId": "d9b06c22-7e65-4d12-8d3d-e4cc0321f745",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        }
+      },
+      "source": [
+        "#########################################\n",
+        "# CELDA 7 :                             #\n",
+        "#########################################\n",
+        "\n",
+        "\n",
+        "descripcion_mascota(nombre = \"Cuco\",tipo_animal = \"Hurón\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "\n",
+            "Tengo un(a) Hurón como mascota.\n",
+            "Mi Hurón se llama Cuco\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "PyXOXEOfCZg6",
+        "colab_type": "text"
+      },
+      "source": [
+        "Observe que ahora el orden de los argumentos no importa, esto se debe a que desde que se manda a llamar la función se hace la asignación a los variables locales de la función. Es de gran importancia que note que la implementación de la función no cambió en nada, los cambios se deben de hacer al momento de llamar la función."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Iw7T80ewCZg-",
+        "colab_type": "text"
+      },
+      "source": [
+        "## 1.2.3 Valores predeterminados\n",
+        "\n",
+        "En la definición de las funciones se puede definir valores predeterminados para los parámetros. Si un parámetro se manda desde la llamada de la función Python utiliza el valor que se ha mandado en la invocación de la función y deshecha el predeterminado, sino se ha manda el parámetro desde la llamada de la función entonces se utilizará el valor predeterminado. Observe el código de las celda 8 y ejecute la celda para observar el comportamiento de la misma."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "yskRV7roCZhD",
+        "colab_type": "code",
+        "outputId": "9bab3151-fef1-47b2-a9a8-299b6b2bfbf5",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        }
+      },
+      "source": [
+        "#########################################\n",
+        "# CELDA 8 : Valores predeterminados     #\n",
+        "#########################################\n",
+        "def descripcion_mascota(nombre,tipo_animal = \"perro\"):\n",
+        "    \"\"\"Muestra la información de una mascota\"\"\"\n",
+        "    print(\"\\nUsted tiene un@ \" + tipo_animal +\".\" )\n",
+        "    print(\"Mi \" + tipo_animal + \" se llama \" + nombre.title() +\".\")\n",
+        "\n",
+        "descripcion_mascota(nombre=\"Orejas\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "\n",
+            "Usted tiene un@ perro.\n",
+            "Mi perro se llama Orejas.\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "d-H8D9e8CZha",
+        "colab_type": "text"
+      },
+      "source": [
+        "## 1.3 Ejercicios\n",
+        "\n",
+        "### 1.3.1 Playera\n",
+        "\n",
+        "Escriba una función llamanda $\\verb|hacerPlayera()|$ que acepte como argumento, el tamaño y un texto que apararecerá cerigrafeado en la playera. La función deberá imprimir en la terminal algo parecido a lo siguiente\n",
+        "\n",
+        "*La playera es talla \"Grande\" y el texto a cerigrafear es: \"Hola amigos\"*\n",
+        "\n",
+        "Para verificar el correcto funcionamiento de la función, genere un programa que la invoque. \n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "xi4WqxWECZhg",
+        "colab_type": "code",
+        "outputId": "c6ff084c-16dd-4aff-d251-e2c7858c5255",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 102
+        }
+      },
+      "source": [
+        "####  Prgrama de Playeras  ###\n",
+        "def hacerPlayera(tamaño,texto):\n",
+        "  print(\"La talla de su playera es \"+tamaño.title()+\" y el texto a cerigrafear es: \"+texto.title())\n",
+        "print(\"Inserte el tamaño de la playera (solo chica, mediana o grande)\")\n",
+        "tamaño=input()\n",
+        "print(\"Inserte el texto que se va a cerigrafear\")\n",
+        "texto=input()\n",
+        "hacerPlayera(tamaño,texto)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Inserte el tamaño de la playera (solo chica, mediana o grande)\n",
+            "ksdgf\n",
+            "Inserte el texto que se va a cerigrafear\n",
+            "skjahffhs\n",
+            "La talla de su playera es Ksdgf y el texto a cerigrafear es: Skjahffhs\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "lSJ4JaJsCZh7",
+        "colab_type": "text"
+      },
+      "source": [
+        "### 1.3.2 Playeras Grandes\n",
+        "\n",
+        "Modique la función $\\verb|hacerPlayera()|$ de tal manera que las playeras grandes sean predeterminadas y el texto predefinido para la cerigrafear sea $\\verb|yo <3 Python|$.\n",
+        "\n",
+        "Para verificar el correcto funcionamiento del módulo:\n",
+        "\n",
+        "1. Genere una playera grande utlizando el texto predeterminado.\n",
+        "\n",
+        "2. Genere una playera mediana con el texto predeterminado.\n",
+        "\n",
+        "3. Genere una playera de talla distnta a grande con un texto distinto al predeterminado.\n",
+        "\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "G8uYQ3eUL8px",
+        "colab_type": "code",
+        "outputId": "aa2a379e-0767-42c7-866e-339af9aec551",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        }
+      },
+      "source": [
+        "####  Prgrama de Playeras  ###\n",
+        "def hacerPlayera(tamaño = \"grande\",texto = \"yo <3 Python\"):\n",
+        "  print(\"La talla de su playera es \"+tamaño.title()+\" y el texto a cerigrafear es: \"+texto.title())\n",
+        "hacerPlayera()\n",
+        "hacerPlayera(tamaño = \"mediano\")\n",
+        "hacerPlayera(tamaño = \"Chica\", texto= \"sjaagadas\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "La talla de su playera es Grande y el texto a cerigrafear es: Yo <3 Python\n",
+            "La talla de su playera es Mediano y el texto a cerigrafear es: Yo <3 Python\n",
+            "La talla de su playera es Chica y el texto a cerigrafear es: Sjaagadas\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "IWccGVRxCZiO",
+        "colab_type": "text"
+      },
+      "source": [
+        "### 1.3.2 Países y ciudades\n",
+        "\n",
+        "Escriba una función llamada $\\verb|descripcionCiudad()|$ que acepte como argumentos el nombre de una ciudad y el nombre de un país como argumentos y que imprima en la terminal un texto como: *Xalapa está en México*, *Río de Janeiro está en Brazil*, *París está en Fracia*. Ponga como valor predeterminado \"México\" a la variable país, y llame a la función tres veces donde por lo menos una ciudad no pertenezca al país México.\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "RdxSTdnEDOtc",
+        "colab_type": "code",
+        "outputId": "ca32391e-330e-4227-f55f-99dd24cf9340",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        }
+      },
+      "source": [
+        "def descripcionCiudad(ciudad,pais = \"mexico\"):\n",
+        "  print(ciudad.title()+\" esta en \"+pais.title())\n",
+        "\n",
+        "descripcionCiudad(ciudad = \"Xalapa\")\n",
+        "descripcionCiudad(ciudad = \"Naucalpan\")\n",
+        "descripcionCiudad(ciudad = \"Paris\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Xalapa esta en Mexico\n",
+            "Naucalpan esta en Mexico\n",
+            "Paris esta en Mexico\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Bc1t23TvCZiz",
+        "colab_type": "text"
+      },
+      "source": [
+        "## 1.4 Valores de regreso\n",
+        "\n",
+        "## 1.4.1 Introducción.\n",
+        "Una función no necesariamente tiene que imprimir texto o mostrar la información que recibe, usualmente, existen funciones que reciben argumentos, los procesan y después regresan al programa principal el o los datos modificados, a éstos datos que la función regresa al programa principal se le conoce como **valor de regreso** o **valor de retorno**, observe el código de la siguiente celda y su comportamiento, en la que se calcula el volumen de un cubo."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "pE2Hqk0SCZi3",
+        "colab_type": "code",
+        "outputId": "796dddf0-0964-4f57-b2d1-b2aa96a0a026",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        }
+      },
+      "source": [
+        "def volumenCubo(longitud_lado):\n",
+        "    volumen = longitud_lado**3\n",
+        "    return volumen\n",
+        "\n",
+        "print(\"El volumen de un cubo cuyos lados miden 4cm es: \" + str(volumenCubo(4)) + \" cm^3\")\n",
+        "\n"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "El volumen de un cubo cuyos lados miden 4cm es: 64 cm^3\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "HsbwKCTMCZjP",
+        "colab_type": "text"
+      },
+      "source": [
+        "Observe que la función $\\verb|volumenCubo(longitud_lado):|$ recibe como argumento un número y dentro de la función eleva ese valor al cubo y lo asigna a la variable local $\\verb|volumen|$ y regresa el valor guardado en $\\verb|volumen|$"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "bHVUUlkjCZjS",
+        "colab_type": "text"
+      },
+      "source": [
+        "## 1.5 Almacenando Funciones en Módulo\n",
+        "\n",
+        "Una ventaja de las funciones es que se pueden almacenar en archivos distintos de tal manera que el archivo principal no esté tan extenso y sea más sencillo de dar mantenimiento y poder depurar los errores, en otros lenguajes de programación como en C y C++ es equivalente las ilbrerías creadas por los usuarios.\n",
+        "\n",
+        "En la siguiente celda se muestra un ejemplo de una librería en la que se calcula el área y perímetro de la cara de un cubo, el área, perímetro y volumen de un cubo. "
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ImsVQVoECZja",
+        "colab_type": "raw"
+      },
+      "source": [
+        "####       cubo.py     ####\n",
+        "def cara_area(lado):\n",
+        "\treturn lado**2\n",
+        "\n",
+        "def cara_perimetro(lado):\n",
+        "\treturn lado*4\n",
+        "\n",
+        "def perimetro(lado):\n",
+        "\treturn lado*12\n",
+        "\n",
+        "def volumen(lado):\n",
+        "\treturn lado**3\n",
+        "\n",
+        "def area(lado):\n",
+        "\treturn cara_area(lado)*6\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "KyvFviCDCZjc",
+        "colab_type": "text"
+      },
+      "source": [
+        "Para agregar una sóla función del módulo que se llama $\\verb|cubo.py|$ sólo basta poner al inicio la siguiente directiva:\n",
+        "\n",
+        "$\\verb|from cubo import cara_area|$"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "hDIR90msCZjf",
+        "colab_type": "code",
+        "outputId": "2c4cd9eb-2288-4f12-ec37-05f9d333850f",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 333
+        }
+      },
+      "source": [
+        "from cubo import cara_area\n",
+        "\n",
+        "print(\"El área de la cara de un cubo cuyo lado es 2 cm es: \" + str(cara_area(2)))"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "ModuleNotFoundError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mModuleNotFoundError\u001b[0m                       Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-9-94f5161fa9cc>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0;32mfrom\u001b[0m \u001b[0mcubo\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mcara_area\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"El área de la cara de un cubo cuyo lado es 2 cm es: \"\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0mstr\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcara_area\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m2\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mModuleNotFoundError\u001b[0m: No module named 'cubo'",
+            "",
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0;32m\nNOTE: If your import is failing due to a missing package, you can\nmanually install dependencies using either !pip or !apt.\n\nTo view examples of installing some common dependencies, click the\n\"Open Examples\" button below.\n\u001b[0;31m---------------------------------------------------------------------------\u001b[0m\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "rTa-TLGdCZjy",
+        "colab_type": "text"
+      },
+      "source": [
+        "Para agregar todo el módulo, se pueden agregar todas las funciones una por una, sin embargo, si el módulo tiene muchas funciones no resulta muy práctico, para poder agregar todo el módulo se debe de agregar la siguiente directiva\n",
+        "\n",
+        "$\\verb|from cubo import *|$"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "VJKmAT46CZj2",
+        "colab_type": "code",
+        "outputId": "1ab97ef2-6abf-4095-cefc-80e18cae1359",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 367
+        }
+      },
+      "source": [
+        "from cubo import *\n",
+        "\n",
+        "print(\"El área de la cara de un cubo cuyo lado es 2 cm es: \" + str(cara_area(2)))\n",
+        "\n",
+        "print(\"El perímetro de la cara de un cubo de lado de 2cm por lado es: \" + str(cara_perimetro(2)))\n",
+        "\n",
+        "print(\"El perímetro de un cubo cuyos lados miden 3 cm es:  \" + str(perimetro(3)))\n",
+        "\n",
+        "print(\"El área de un cubo cuyos lados miden 3 cm es: \" + str(area(3)))\n",
+        "\n",
+        "print(\"El volumen de un cubo cuyos lados miden 3 cm es: \" + str(volumen(3)))"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "ModuleNotFoundError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mModuleNotFoundError\u001b[0m                       Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-10-243299806ba6>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0;32mfrom\u001b[0m \u001b[0mcubo\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0;34m*\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"El área de la cara de un cubo cuyo lado es 2 cm es: \"\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0mstr\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcara_area\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m2\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"El perímetro de la cara de un cubo de lado de 2cm por lado es: \"\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0mstr\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcara_perimetro\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m2\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mModuleNotFoundError\u001b[0m: No module named 'cubo'",
+            "",
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0;32m\nNOTE: If your import is failing due to a missing package, you can\nmanually install dependencies using either !pip or !apt.\n\nTo view examples of installing some common dependencies, click the\n\"Open Examples\" button below.\n\u001b[0;31m---------------------------------------------------------------------------\u001b[0m\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "V3pfrgvWCZkG",
+        "colab_type": "text"
+      },
+      "source": [
+        "## 1.6 Ejercicios\n",
+        "\n",
+        "1. Hacer un módulo con las funciones básicas para una calculadora, suma, resta, producto y división, en la función de división si el denomidador es igual a cero debe de volver a leer el valor del denominador hasta que sea distinto de cero (se recomienda utilizar el ciclo while y el condicional if)\n",
+        "\n",
+        "2. Hacer una función que el usuario introduzca un número y la función debe de desplegar un triángulo de sumas, *Como ejemplo, si el usuario manda  a la función 4 debeía imprimir el siguiente arreglo*\n",
+        "\n",
+        "+\n",
+        "\n",
+        "++\n",
+        "\n",
+        "+++\n",
+        "\n",
+        "++++\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "oVkcMZ5sCZkJ",
+        "colab_type": "code",
+        "outputId": "89329f4d-189d-433f-9db4-5d25c82b52bc",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 401
+        }
+      },
+      "source": [
+        "def Calculadora(numero1,numero2,operacion):\n",
+        "  if operacion == 1:\n",
+        "    print(\"La suma entre \"+str(numero1)+\" y \"+str(numero2)+\" nos da: \"+str(RS))\n",
+        "  elif operacion == 2:\n",
+        "    print(\"La resta entre \"+str(numero1)+\" y \"+str(numero2)+\" nos da: \"+str(RR))\n",
+        "  elif operacion == 3:\n",
+        "    print(\"La multiplicacion entre \"+str(numero1)+\" y \"+str(numero2)+\" nos da: \"+str(RM))\n",
+        "  elif operacion == 4:\n",
+        "    print(\"La divicion entre \"+str(numero1)+\" y \"+str(numero2)+\" nos da: \"+str(RD))\n",
+        "  else:\n",
+        "    print(\"La opcion no es valida\")\n",
+        "\n",
+        "print(\"Ingrese la operacion que desea realizar\")\n",
+        "print(\"1. Suma\")\n",
+        "print(\"2. Resta\")\n",
+        "print(\"3. Multipliacion\")\n",
+        "print(\"4. Divicion\")\n",
+        "operacion=input()\n",
+        "print(\"Ingrese el primer numero\")\n",
+        "n1=input()\n",
+        "print(\"Ingrese el segundo numero\")\n",
+        "n2=input()\n",
+        "RS=n1+n2\n",
+        "RR=n1-n2\n",
+        "RM=n1*n2\n",
+        "RD=n1/n2\n",
+        "\n",
+        "Calculadora(n1,n2,operacion)\n"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Ingrese la operacion que desea realizar\n",
+            "1. Suma\n",
+            "2. Resta\n",
+            "3. Multipliacion\n",
+            "4. Divicion\n",
+            "1\n",
+            "Ingrese el primer numero\n",
+            "1\n",
+            "Ingrese el segundo numero\n",
+            "1\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-6-125d0a3e2b73>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m     22\u001b[0m \u001b[0mn2\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0minput\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     23\u001b[0m \u001b[0mRS\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mn1\u001b[0m\u001b[0;34m+\u001b[0m\u001b[0mn2\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 24\u001b[0;31m \u001b[0mRR\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mn1\u001b[0m\u001b[0;34m-\u001b[0m\u001b[0mn2\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     25\u001b[0m \u001b[0mRM\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mn1\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0mn2\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     26\u001b[0m \u001b[0mRD\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mn1\u001b[0m\u001b[0;34m/\u001b[0m\u001b[0mn2\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mTypeError\u001b[0m: unsupported operand type(s) for -: 'str' and 'str'"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "ixqCfE-ro_g4",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    }
+  ]
+}
